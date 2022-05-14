@@ -10,5 +10,6 @@ data class Post(
     val owner_id: Int? = null,
     val from_id: Int? = null,
     val friends_only: Int? = null,
-    val comments: Int? = null
+    val comments: Int? = null,
+    val attachments: List<Attachments>? = null
 )

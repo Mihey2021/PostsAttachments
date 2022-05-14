@@ -1,7 +1,7 @@
 package service
 
 import com.sun.org.apache.xpath.internal.operations.Bool
-import data.Post
+import data.*
 
 object WallService {
 
@@ -10,6 +10,30 @@ object WallService {
     fun add(post: Post): Post {
         postsArr += post.copy(id = getLastPostId() + 1)
         println("Post added: ${postsArr.last()}")
+        print("Attachments: ")
+        if (post.attachments != null) {
+            println()
+            for (attachment in post.attachments) {
+                when (attachment) {
+                    is AttachmentPhoto -> {
+                        println("✎ Фото | ${attachment.photo}")
+                    }
+                    is AttachmentDoc -> {
+                        println("✎ Документ | ${attachment.doc}")
+                    }
+                    is AttachmentVideo -> {
+                        println("✎ Видео | ${attachment.video}")
+                    }
+                    is AttachmentAudio -> {
+                        println("♫ Аудио | ${attachment.audio}")
+                    }
+                    is AttachmentNote -> {
+                        println("✎ Заметка | ${attachment.note}")
+                    }
+                }
+            }
+
+        } else println("<Вложений нет>")
         return postsArr.last()
     }
 
