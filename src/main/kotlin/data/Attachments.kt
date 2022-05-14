@@ -4,32 +4,32 @@ interface Attachments {
     val type: String
 }
 
-class AttachmentPhoto(
+data class AttachmentPhoto(
     override val type: String,
     val photo: Photo
 ) : Attachments
 
-class AttachmentDoc(
+data class AttachmentDoc(
     override val type: String,
     val doc: Doc
 ) : Attachments
 
-class AttachmentVideo(
+data class AttachmentVideo(
     override val type: String,
     val video: Video
 ) : Attachments
 
-class AttachmentAudio(
+data class AttachmentAudio(
     override val type: String,
     val audio: Audio
 ) : Attachments
 
-class AttachmentNote(
+data class AttachmentNote(
     override val type: String,
     val note: Note
 ) : Attachments
 
-class Photo(
+data class Photo(
     val id: Int,
     val owner_id: Int,
     val date: Int,
@@ -40,7 +40,7 @@ class Photo(
     val height: Int
 )
 
-class Doc(
+data class Doc(
     val id: Int,
     val owner_id: Int,
     val date: Int,
@@ -50,7 +50,7 @@ class Doc(
     val type: Int
 )
 
-class Video(
+data class Video(
     val id: Int,
     val owner_id: Int,
     val date: Int,
@@ -61,7 +61,7 @@ class Video(
     val height: Int
 )
 
-class Audio(
+data class Audio(
     val id: Int,
     val owner_id: Int,
     val date: Int,
@@ -75,7 +75,7 @@ class Audio(
     }
 }
 
-class Note(
+data class Note(
     val id: Int,
     val owner_id: Int,
     val date: Int,
